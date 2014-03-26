@@ -1,0 +1,5 @@
+# with fresh db
+use admin
+db.system.users.find()
+use <dbname>
+db.addUser( { user: "mongoUser", pwd: "mongoPass", roles: [ "readWrite", "dbAdmin" ]  })
