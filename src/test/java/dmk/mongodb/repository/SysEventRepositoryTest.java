@@ -1,5 +1,7 @@
 package dmk.mongodb.repository;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
 import org.junit.After;
@@ -54,12 +56,19 @@ public class SysEventRepositoryTest {
 	}
 	
 	@Test
-	public void testFindAll(){
+	public void findAll(){
 		logger.debug("test mongo finder");
 		final List<SysEvent> events = sysEventRepository.findAll();
 		for (SysEvent sysEvent : events) {
 			logger.debug(sysEvent.toString());
 		}
+	}
+	
+	@Test
+	public void findBy(){
+		logger.debug("testFindBy");
+		final List<SysEvent> events = sysEventRepository.findByEventType("View");
+		assertTrue(events.size() >= 2);
 	}
 	
 }
